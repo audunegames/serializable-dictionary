@@ -18,7 +18,7 @@ namespace Audune.Utils.Dictionary.Editor
 
 
     // Reorderable list options to use for drawing the dictionary
-    private static ReorderableListDrawOptions _reorderableListDrawOptions = ReorderableListDrawOptions.DrawFoldout | ReorderableListDrawOptions.DrawInfoField;
+    private static ReorderableListOptions _reorderableListDrawOptions = ReorderableListOptions.DrawFoldout | ReorderableListOptions.DrawInfoField;
 
 
     // Reorderable list for the entries
