@@ -1,11 +1,11 @@
 {
-  "name": "com.audune.utils.collections",
-  "displayName": "Collection Utilities",
+  "name": "com.audune.utils.dictionary",
+  "displayName": "Serializable Dictionary",
   "version": "0.1.0",
   "unity": "2022.3",
-  "description": "Collection utilities for Unity 2022.3 LTS or higher",
-  "documentationUrl": "https://github.com/audunegames/unity-collection-utils",
-  "changelogUrl": "https://github.com/audunegames/unity-collection-utils/commits/v0.1.0",
+  "description": "Serializable dictionary class for Unity 2022.3 LTS or higher",
+  "documentationUrl": "https://github.com/audunegames/serializabledictionary",
+  "changelogUrl": "https://github.com/audunegames/serializabledictionary/commits/v0.1.0",
   "licensesUrl": "https://www.gnu.org/licenses/gpl-3.0.html",
   "license": "GPL-3.0-or-later",
   "author": {
