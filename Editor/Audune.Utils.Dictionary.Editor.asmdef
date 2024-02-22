@@ -1,0 +1,20 @@
+{
+    "name": "Audune.Utils.Dictionary.Editor",
+    "rootNamespace": "Audune.Utils.Dictionary.Editor",
+    "references": [
+        "GUID:c0115945b6450f544a19881529b3a032",
+        "GUID:8d3eaed832bf78046bfb9b4fc4d6d44e",
+        "GUID:cae9ba75d7e39b34f8eed004d047cc0e"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
