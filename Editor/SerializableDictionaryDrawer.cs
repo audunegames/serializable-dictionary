@@ -17,10 +17,6 @@ namespace Audune.Utils.Dictionary.Editor
     public delegate void ElementAddCallback(SerializedProperty key, SerializedProperty value);
 
 
-    // Reorderable list options to use for drawing the dictionary
-    private static ReorderableListOptions _reorderableListDrawOptions = ReorderableListOptions.DrawFoldout | ReorderableListOptions.DrawInfoField;
-
-
     // Reorderable list for the entries
     private ReorderableList _entriesList;
 
@@ -38,7 +34,7 @@ namespace Audune.Utils.Dictionary.Editor
       if (_entriesList == null || _entriesList.serializedProperty != property)
         InitializeEntriesList(entries, options);
 
-      _entriesList.DoList(rect, _reorderableListDrawOptions, scope.content);
+      _entriesList.DoList(rect, options.listOptions, scope.content);
     }
 
     // Return the property height
@@ -49,7 +45,7 @@ namespace Audune.Utils.Dictionary.Editor
       if (_entriesList == null || _entriesList.serializedProperty != property)
         InitializeEntriesList(entries, options);
 
-      return _entriesList.GetHeight(_reorderableListDrawOptions);
+      return _entriesList.GetHeight(options.listOptions);
     }
 
 
