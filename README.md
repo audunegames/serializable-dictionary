@@ -11,7 +11,7 @@ Since Unity doesn't serialize dictionary classes by default, usually some serial
 
 ## Installation
 
-## Requirements
+### Requirements
 
 This package depends on the following packages:
 
@@ -19,7 +19,7 @@ This package depends on the following packages:
 
 If you're installing the required packages from the [OpenUPM registry](https://openupm.com/), make sure to add a scoped registry with the URL `https://package.openupm.com` and the required scopes before installing the packages.
 
-## Installing from the OpenUPM registry
+### Installing from the OpenUPM registry
 
 To install this package as a package from the OpenUPM registry in the Unity Editor, use the following steps:
 
@@ -40,7 +40,7 @@ Scope(s): com.audune.utils.dictionary
 com.audune.utils.dictionary
 ```
 
-## Installing as a Git package
+### Installing as a Git package
 
 To install this package as a Git package in the Unity Editor, use the following steps:
 
