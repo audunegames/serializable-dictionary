@@ -1,5 +1,4 @@
-﻿using Audune.Utils.UnityEditor;
-using Audune.Utils.UnityEditor.Editor;
+﻿using Audune.Utils.UnityEditor.Editor;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -66,7 +65,6 @@ namespace Audune.Utils.Dictionary.Editor
       if (_entriesList == null)
       {
         _entriesList = new ReorderableListBuilder()
-          .SetDraggable(false)
           .SetHeaderDrawer(EntriesListHeaderDrawer(options))
           .SetElementDrawer(EntriesListElementDrawer(), EntriesListElementDrawerHeight())
           .Create(property.serializedObject, property);
@@ -83,8 +81,8 @@ namespace Audune.Utils.Dictionary.Editor
     private ReorderableListBuilder.HeaderDrawer EntriesListHeaderDrawer(SerializableDictionaryOptionsAttribute options)
     {
       return (list, rect) => {
-        EditorGUI.LabelField(rect.AlignLeft(0.5f * (rect.width - EditorGUIUtility.standardVerticalSpacing)), new GUIContent(options.keyHeader));
-        EditorGUI.LabelField(rect.AlignRight(0.5f * (rect.width - EditorGUIUtility.standardVerticalSpacing)), new GUIContent(options.valueHeader));
+        EditorGUI.LabelField(rect.AlignLeft(0.5f * (rect.width - EditorGUIUtility.standardVerticalSpacing) - 10), new GUIContent(options.keyHeader));
+        EditorGUI.LabelField(rect.AlignRight(0.5f * (rect.width - EditorGUIUtility.standardVerticalSpacing) - 10), new GUIContent(options.valueHeader));
       };
     }
 
@@ -95,16 +93,12 @@ namespace Audune.Utils.Dictionary.Editor
         var key = element.FindPropertyRelative("key");
         var value = element.FindPropertyRelative("value");
 
-        var keyRect = rect.AlignLeft(0.5f * (rect.width - EditorGUIUtility.standardVerticalSpacing));
-        var valueRect = rect.AlignRight(0.5f * (rect.width - EditorGUIUtility.standardVerticalSpacing));
+        var keyRect = rect.AlignTop(EditorGUI.GetPropertyHeight(key)).AlignLeft(0.5f * (rect.width - EditorGUIUtility.standardVerticalSpacing));
+        var valueRect = rect.AlignTop(EditorGUI.GetPropertyHeight(value)).AlignRight(0.5f * (rect.width - EditorGUIUtility.standardVerticalSpacing));
 
-        if (_duplicatedKeys.Contains(key.boxedValue))
-        {
-          var warningRect = keyRect.AlignLeft(16.0f, EditorGUIUtility.standardVerticalSpacing, out keyRect);
-          EditorGUI.LabelField(warningRect, new GUIContent("⚠️"));
-        }
+        using (new EditorGUIUtilityExtensions.ColorScope(Color.Lerp(Color.red, Color.white, 0.75f), _duplicatedKeys.Contains(key.boxedValue)))
+          EditorGUI.PropertyField(keyRect, key, GUIContent.none);
 
-        EditorGUI.PropertyField(keyRect, key, GUIContent.none);
         EditorGUI.PropertyField(valueRect, value, GUIContent.none);
       };
     }
