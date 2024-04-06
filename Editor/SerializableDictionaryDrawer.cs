@@ -96,7 +96,7 @@ namespace Audune.Utils.Dictionary.Editor
         var keyRect = rect.AlignTop(EditorGUI.GetPropertyHeight(key)).AlignLeft(0.5f * (rect.width - EditorGUIUtility.standardVerticalSpacing));
         var valueRect = rect.AlignTop(EditorGUI.GetPropertyHeight(value)).AlignRight(0.5f * (rect.width - EditorGUIUtility.standardVerticalSpacing));
 
-        using (new EditorGUIUtilityExtensions.ColorScope(Color.Lerp(Color.red, Color.white, 0.75f), _duplicatedKeys.Contains(key.boxedValue)))
+        using (new EditorGUIUtilityExtensions.ColorScope(EditorIcons.errorColor, _duplicatedKeys.Contains(key.boxedValue)))
           EditorGUI.PropertyField(keyRect, key, GUIContent.none);
 
         EditorGUI.PropertyField(valueRect, value, GUIContent.none);
