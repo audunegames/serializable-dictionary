@@ -52,12 +52,31 @@ namespace Audune.Utils.Dictionary
 
     #region Converting enumerables to dictionaries
     // Convert an enumerable of key-value pairs to a dictionary
-    public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> enumerable)
+    public static Dictionary<TKey, TElement> ToDictionary<TKey, TElement>(this IEnumerable<KeyValuePair<TKey, TElement>> enumerable)
     {
       if (enumerable == null)
         throw new ArgumentNullException(nameof(enumerable));
 
       return enumerable.ToDictionary(e => e.Key, e => e.Value);
+    }
+    #endregion
+
+    #region Merging dictionaries
+
+
+    // Merge two dictionaries into one
+    public static Dictionary<TKey, TElement> Merge<TKey, TElement>(this IReadOnlyDictionary<TKey, TElement> dictionary, IReadOnlyDictionary<TKey, TElement> other, DictionaryMergeStrategy<TKey, TElement> strategy)
+    {
+      if (dictionary == null)
+        throw new ArgumentNullException(nameof(dictionary));
+      if (other == null)
+        throw new ArgumentNullException(nameof(other));
+      if (strategy == null)
+        throw new ArgumentNullException(nameof(strategy));
+        
+      return dictionary.Concat(other)
+        .ToLookup(e => e.Key, e => e.Value)
+        .ToDictionary(g => g.Key, g => strategy(g));
     }
     #endregion
   }
