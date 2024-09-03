@@ -15,7 +15,7 @@ Since Unity doesn't serialize dictionary classes by default, usually some serial
 
 This package depends on the following packages:
 
-* [UnityEditor Utilities](https://openupm.com/packages/com.audune.utils.unityeditor/), version **1.0.1** or higher.
+* [UnityEditor Utilities](https://openupm.com/packages/com.audune.utils.unityeditor/), version **1.0.6** or higher.
 
 If you're installing the required packages from the [OpenUPM registry](https://openupm.com/), make sure to add a scoped registry with the URL `https://package.openupm.com` and the required scopes before installing the packages.
 
