@@ -62,19 +62,17 @@ namespace Audune.Utils.Dictionary
     #endregion
 
     #region Merging dictionaries
-
-
     // Merge two dictionaries into one
-    public static Dictionary<TKey, TElement> Merge<TKey, TElement>(this IReadOnlyDictionary<TKey, TElement> dictionary, IReadOnlyDictionary<TKey, TElement> other, DictionaryMergeStrategy<TKey, TElement> strategy)
+    public static Dictionary<TKey, TElement> Merge<TKey, TElement>(this IEnumerable<KeyValuePair<TKey, TElement>> enumerable, IEnumerable<KeyValuePair<TKey, TElement>> other, DictionaryMergeStrategy<TKey, TElement> strategy)
     {
-      if (dictionary == null)
-        throw new ArgumentNullException(nameof(dictionary));
+      if (enumerable == null)
+        throw new ArgumentNullException(nameof(enumerable));
       if (other == null)
         throw new ArgumentNullException(nameof(other));
       if (strategy == null)
         throw new ArgumentNullException(nameof(strategy));
         
-      return dictionary.Concat(other)
+      return enumerable.Concat(other)
         .ToLookup(e => e.Key, e => e.Value)
         .ToDictionary(g => g.Key, g => strategy(g));
     }
