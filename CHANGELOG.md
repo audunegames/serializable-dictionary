@@ -31,13 +31,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.1] - 2024-02-24
 
-## Added
+### Added
 
 - Support for reorderable list options for the `SerializedDictionary` attribute.
 
 ## [0.1.0] - 2024-02-22
 
-## Added
+### Added
 
 - Serializable dictionary class that serializes in the Unity editor.
 - Extension methods for dictionaries to select keys and values and to convert enumerables to dictionaries.
