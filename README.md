@@ -114,6 +114,15 @@ var doubledKeys = dictionary.ToDictionary(e => e.Key * 2, e => e.Value);
 var boldValues = dictionary.SelectOnValue(value => $"<b>{value}</b>").ToDictionary();
 // ... is equivalent to ...
 var doubledKeys = dictionary.ToDictionary(e => e.Key, e => $"<b>{e.Value}</b>");
+
+// Merge two dictionaries with the specified strategy
+var mergedDictionaries = dictionary.Merge(other, g => g.First());
+// ... is equivalent to ...
+var mergedDictionaries = dictionary.ToLookup(e => e.Key, e => e.Value).ToDictionary(g => g.Key, g => g.First());
+
+// There are also some common merge strategies defined as methods
+var firstValuesUsed = dictionary.Merge(other, DictionaryMergeStrategy.First());
+var lastValuesUsed = dictionary.Merge(other, DictionaryMergeStrategy.Last());
 ```
 
 ## Contributing
