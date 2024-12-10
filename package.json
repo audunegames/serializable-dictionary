@@ -1,11 +1,11 @@
 {
   "name": "com.audune.utils.dictionary",
   "displayName": "Serializable Dictionary",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "unity": "2022.3",
-  "description": "Serializable dictionary class for Unity 2022 LTS or higher",
-  "documentationUrl": "https://github.com/audunegames/serializabledictionary",
-  "changelogUrl": "https://github.com/audunegames/serializabledictionary/tree/master/CHANGELOG.md",
+  "description": "Serializable version of a C# dictionary for use in Unity 2022 LTS or higher.",
+  "documentationUrl": "https://github.com/audunegames/serializable-dictionary",
+  "changelogUrl": "https://github.com/audunegames/serializable-dictionary/tree/master/CHANGELOG.md",
   "licensesUrl": "https://www.gnu.org/licenses/gpl-3.0.html",
   "license": "GPL-3.0-or-later",
   "author": {
@@ -14,6 +14,6 @@
     "url": "https://audune.com/"
   },
   "dependencies": {
-    "com.audune.utils.unityeditor": "1.0.6"
+    "com.audune.utils.unityeditor": "2.0.0"
   }
 }
